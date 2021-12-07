@@ -3,12 +3,145 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=h1, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" class="stylesheet" />
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Mono&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/de58a1a140.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/style.css" />
+    <title>SheCodes Homework Week 2</title>
   </head>
   <body>
-    <h1>Hello!</h1>
+    <div class="container p-1">
+        <div class="background-box shadow p-3 mb-5  rounded">
+
+      <div class="row m-1 mt-5">
+
+        <div class="col-sm-6 location-info">
+
+          <div class="row mt-2">
+            <div class="col-sm-12 current-city">
+              <h1 id="city">Los Angeles, US</h1>
+              <p class="last-update">Last updated: ...</p>
+            </div>
+
+            <div class="row m-2">
+              <div class="col-sm-12 search-bar">
+           
+                <form id="city-form">
+                <div class="input-group">
+          
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="city-input"
+                    placeholder="🔍 Search for your city"
+                    autofocus=on
+                    autocomplete="off"
+                  />
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">Search</button>
+                     <button class="btn btn-outline-secondary" id="position-button">Current position</button>
+                  </div>
+                  
+                </div>
+                </form>
+              </div>
+            </div>
+            <div class="row m-1 mt-4">
+                <div class="col-12 suntime">
+                Sunrise: <span id=sunrise>08:00</span>h | Sunset <span id=sunset>20:42</span>h
+              </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 mt-2 weather-info">
+          <div class="row m-2">
+            <div class="col-sm-8 current-weather">
+              <h2>Current weather</h2>
+              <p id="temperature">25 </p>
+              <a href="#" id="celsius-link">°C</a> / <a href="#" id="fahrenheit-link">°F</a>
+              <br />
+              <span id="description">Sunny</span>
+            </div>
+            <div class="col-sm-4 weather-icon">
+            <i class="fas fa-sun main-icon"></i>            
+            </div>
+          </div>
+
+          <div class="row m-2 mt-4">
+            <div class="col-sm-8 info-description">
+              
+              Max Temperature <br />
+              Min Temperature <br />
+              Humidity
+            </div>
+            <div class="col-sm-4 info-values">27 °C <br />20°C <br />67%</div>
+          </div>
+        </div>
+
+        <div class="row m-5 daily-weather">
+
+        
+          <div class="col-sm-2 day">
+             <span class="day-name">Tuesday</span>
+              <i class="fas fa-sun daily-icon"></i>
+                  28 °C / 14 °C
+              </div>
+            
+          <div class="col-sm-2 day">
+        
+                  <span class="day-name">Wednesday</span>
+                  <i class="fas fa-cloud-rain daily-icon"></i>
+                  22 °C / 10 °C
+            </div>
+          
+          <div class="col-sm-2 day">
+              <span class="day-name">Thursday</span>
+            <i class="fas fa-cloud-rain daily-icon"></i>
+                  24 °C / 12 °C
+               
+          </div>
+     
+          <div class="col-sm-2 day">
+            <span class="day-name">Friday</span>
+              <i class="fas fa-sun daily-icon"></i>   
+                  26 °C / 14 °C
+                
+          </div>
+          <div class="col-sm-2 day">
+            
+                  <span class="day-name">Saturday</span>
+                 <i class="fas fa-cloud daily-icon"></i>
+                  26 °C / 12 °C  
+          </div>
+
+          <div class="col-sm-2 day">
+             <span class="day-name">Sunday</span>
+            <i class="fas fa-cloud daily-icon"></i> 
+                  26 °C / 12 °C
+          </div>
+
+          </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
   </body>
-  <script src="script.js"></script>
 </html>
