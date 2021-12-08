@@ -42,11 +42,11 @@
             <div class="row m-2">
               <div class="search-bar">
            
-                <form id="city-form">
+                <form id="search-form">
                 <div class="input-group">
           
                   <input
-                    type="text"
+                    type="search"
                     class="form-control"
                     id="city-input"
                     placeholder="🔍 Search for your city"
@@ -54,7 +54,7 @@
                     autocomplete="off"
                   />
                   <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="submit"> Search </button>
+                    <input class="btn btn-outline-secondary" type="submit"/>
                      <button class="btn btn-outline-secondary" id="position-button">📍 Position</button>
                   </div>
                   
@@ -95,16 +95,13 @@
                   <li>Humidity: <span id="humidity"></span>%</li>
                   <li>Wind: <span id="wind"></span>kph</li>
               </ul>
-              
             </div>
-            
           </div>
         </div>
 
 <!-- weather forecast upcoming 5 days -->
         <div class="row m-5 daily-weather">
 
-        
           <div class="col-sm-2 day">
              <span class="day-name">Tuesday</span>
               <i class="fas fa-sun daily-icon"></i>
