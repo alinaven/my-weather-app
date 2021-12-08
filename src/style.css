@@ -53,7 +53,7 @@ ul {
 .main-icon {
   display: block;
   margin: 0 auto;
-  font-size: 70px;
+  font-size: 60px;
   color: orange;
 }
 
@@ -93,4 +93,8 @@ ul {
 
 #Github-link {
   font-size: 12px;
+}
+
+#description {
+  text-transform: capitalize;
 }

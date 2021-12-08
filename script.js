@@ -28,6 +28,10 @@ function showTemperature(response) {
   feltTemperature = Math.round(response.data.main.feels_like);
   country = response.data.sys.country;
   wind = Math.round(response.data.wind.speed);
+  sunrise = formatSuntime(response.data.sys.sunrise * 1000);
+  sunset = formatSuntime(response.data.sys.sunset * 1000);
+  lastUpdate = formatDate(response.data.dt * 1000);
+  city = `${response.data.name}`;
 
   // insert variables into html
   let temperatureElement = document.querySelector("#temperature");
@@ -36,8 +40,8 @@ function showTemperature(response) {
   let descriptionElement = document.querySelector("#description");
   descriptionElement.innerHTML = weatherDescription;
 
-  let city = document.querySelector("#city");
-  city.innerHTML = `${response.data.name}`;
+  let cityElement = document.querySelector("#city");
+  cityElement.innerHTML = city;
 
   let feltTemperatureElement = document.querySelector("#felt-temperature");
   feltTemperatureElement.innerHTML = feltTemperature;
@@ -50,6 +54,15 @@ function showTemperature(response) {
 
   let windSpeedElement = document.querySelector("#wind");
   windSpeedElement.innerHTML = wind;
+
+  let sunriseElement = document.querySelector("#sunrise");
+  sunriseElement.innerHTML = sunrise;
+
+  let sunsetElement = document.querySelector("#sunset");
+  sunsetElement.innerHTML = sunset;
+
+  let lastUpdateElement = document.querySelector("#last-update");
+  lastUpdateElement.innerHTML = lastUpdate;
 }
 
 // weather for city via search engine
@@ -77,35 +90,49 @@ function convertToFahrenheit(event) {
   temperature.innerHTML = "77";
 }
 
+// formatted date from API
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes}`;
+}
+
+function formatSuntime(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes}`;
+}
+
 let city = document.querySelector("#city-input");
 
 // API
 let apiKey = "5d746e8f46d35c046956d77d0f16774f";
 let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(apiURL).then(showTemperature);
-
-// define time information
-let now = new Date();
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let currentDay = days[now.getDay()];
-console.log(currentDay);
-let hours = now.getHours();
-let minutes = now.getMinutes();
-console.log(`${hours}:${minutes}`);
-let currentDate = `${currentDay} ${hours}:${minutes}`;
-console.log(currentDate);
-
-let lastupdate = document.querySelector(".last-update");
-lastupdate.innerHTML = currentDate;
-console.log(lastupdate);
 
 // buttons
 let cityForm = document.querySelector("#city-form");
