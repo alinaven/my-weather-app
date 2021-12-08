@@ -35,12 +35,12 @@
 
           <div class="row mt-2">
             <div class="col-sm-12 current-city">
-              <span id="city">New York</span>, <span id="country">US</span>
+              <span id="city">New York</span>, <span id="country"></span>
               <p class="last-update"></p>
             </div>
-
+<!-- search -->
             <div class="row m-2">
-              <div class="col-sm-12 search-bar">
+              <div class="search-bar">
            
                 <form id="city-form">
                 <div class="input-group">
@@ -64,7 +64,7 @@
             </div>
             <div class="row m-1 mt-4">
                 <div class="col-12 suntime">
-                Sunrise: <span id=sunrise>08:00</span>h | Sunset <span id=sunset>20:42</span>h
+                Sunrise: <span id=sunrise></span>h | Sunset <span id=sunset></span>h
               </div>
               </div>
           </div>
@@ -75,10 +75,10 @@
           <div class="row m-2">
             <div class="col-sm-8 current-weather">
               <h2>Current weather</h2>
-              <p id="temperature">25 </p>
+              <p id="temperature"></p>
               <a href="#" id="celsius-link">°C</a> / <a href="#" id="fahrenheit-link">°F</a>
               <br />
-              <span id="description">Sunny</span>
+              <span id="description"></span>
             </div>
             <div class="col-sm-4 weather-icon">
             <i class="fas fa-sun main-icon"></i>            
@@ -88,13 +88,13 @@
           <div class="row m-2 mt-4">
             <div class="col-sm-12 info-description">
               <ul>
-                  <li>Felt temperature - <span id="fet-temperature"></span></li>
-                  <li>Humidity -  <span id="humidity"></span></li>
-                  <li>Windspeed - <span id="wind"></span></li>
+                  <li>Feels like <span id="felt-temperature"></span>°C</li>
+                  <li>Humidity: <span id="humidity"></span>%</li>
+                  <li>Wind: <span id="wind"></span>kph</li>
               </ul>
               
             </div>
-            <div class="col-sm-4 info-values"><br />20°C <br />67%</div>
+            
           </div>
         </div>
 
@@ -143,8 +143,6 @@
 
           </div>
           </div>
-        
-        
         <footer id="Github-link"><a href="https://github.com/alinaven/my-weather-app">👩🏼‍💻 Open-source code </a>by Alina Vennes</footer>
       </div>
       </div>

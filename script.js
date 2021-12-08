@@ -25,31 +25,31 @@ function showTemperature(response) {
   temperatureCelsius = Math.round(response.data.main.temp);
   weatherDescription = response.data.weather[0].description;
   humidity = response.data.main.humidity;
-  feltTemperature = response.data.main.feels_like;
+  feltTemperature = Math.round(response.data.main.feels_like);
   country = response.data.sys.country;
-  wind = response.data.wind.speed;
+  wind = Math.round(response.data.wind.speed);
 
   // insert variables into html
-  let temperature = document.querySelector("#temperature");
-  temperature.innerHTML = temperatureCelsius;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = temperatureCelsius;
 
-  let description = document.querySelector("#description");
-  description.innerHTML = weatherDescription;
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = weatherDescription;
 
   let city = document.querySelector("#city");
   city.innerHTML = `${response.data.name}`;
 
-  let feltTemp = document.querySelector("#felt-temperature");
-  feltTemperature.innerHTML = feltTemperature;
+  let feltTemperatureElement = document.querySelector("#felt-temperature");
+  feltTemperatureElement.innerHTML = feltTemperature;
 
-  let humid = document.querySelector("#humidity");
-  humidity.innerHTML = humidity;
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = humidity;
 
-  let countryCode = document.querySelector("#country");
-  countryCode.innerHTML = country;
+  let countryCodeElement = document.querySelector("#country");
+  countryCodeElement.innerHTML = country;
 
-  let windSpeed = document.querySelector("#wind");
-  windSpeed.innerHTML = wind;
+  let windSpeedElement = document.querySelector("#wind");
+  windSpeedElement.innerHTML = wind;
 }
 
 // weather for city via search engine
