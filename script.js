@@ -1,3 +1,5 @@
+// Unit Conversion
+
 function convertToCelcius(event) {
   event.preventDefault();
   let temperature = document.querySelector("#temperature");
@@ -10,6 +12,7 @@ function convertToFahrenheit(event) {
   temperature.innerHTML = "77";
 }
 
+// Retrieve location
 function fetchPosition(position) {
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
@@ -26,12 +29,15 @@ function retrievePosition(position) {
   axios.get(apiURL).then(showTemperature);
 }
 
+// Get Data
 function showTemperature(response) {
   console.log(response);
 
+  // make variables
   temperatureCelsius = Math.round(response.data.main.temp);
   weatherDescription = response.data.weather[0].description;
 
+  // insert variables into html
   let temperature = document.querySelector("#temperature");
   temperature.innerHTML = temperatureCelsius;
 
@@ -42,6 +48,7 @@ function showTemperature(response) {
   city.innerHTML = `${response.data.name}`;
 }
 
+// show city
 function showCity(event) {
   event.preventDefault();
   let city = document.querySelector("#city-input");
@@ -52,6 +59,7 @@ function showCity(event) {
   axios.get(apiURL).then(showTemperature);
 }
 
+// define time information
 let now = new Date();
 let days = [
   "Sunday",
