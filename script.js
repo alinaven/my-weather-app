@@ -1,18 +1,6 @@
-// Unit Conversion
-
-function convertToCelcius(event) {
-  event.preventDefault();
-  let temperature = document.querySelector("#temperature");
-  temperature.innerHTML = "25";
-}
-
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let temperature = document.querySelector("#temperature");
-  temperature.innerHTML = "77";
-}
-
 // Retrieve location
+//window.onload = fetchPosition();
+
 function fetchPosition(position) {
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
@@ -29,13 +17,17 @@ function retrievePosition(position) {
   axios.get(apiURL).then(showTemperature);
 }
 
-// Get Data
+// Get weather data (via current location or search engine location)
 function showTemperature(response) {
   console.log(response);
 
   // make variables
   temperatureCelsius = Math.round(response.data.main.temp);
   weatherDescription = response.data.weather[0].description;
+  humidity = response.data.main.humidity;
+  feltTemperature = response.data.main.feels_like;
+  country = response.data.sys.country;
+  wind = response.data.wind.speed;
 
   // insert variables into html
   let temperature = document.querySelector("#temperature");
@@ -46,18 +38,51 @@ function showTemperature(response) {
 
   let city = document.querySelector("#city");
   city.innerHTML = `${response.data.name}`;
+
+  let feltTemp = document.querySelector("#felt-temperature");
+  feltTemperature.innerHTML = feltTemperature;
+
+  let humid = document.querySelector("#humidity");
+  humidity.innerHTML = humidity;
+
+  let countryCode = document.querySelector("#country");
+  countryCode.innerHTML = country;
+
+  let windSpeed = document.querySelector("#wind");
+  windSpeed.innerHTML = wind;
 }
 
-// show city
+// weather for city via search engine
 function showCity(event) {
   event.preventDefault();
   let city = document.querySelector("#city-input");
-  let h1 = document.querySelector("h1");
+  let h1 = document.querySelector("#city");
   h1.innerHTML = `${city.value}`;
   apiKey = "5d746e8f46d35c046956d77d0f16774f";
   apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${apiKey}&units=metric`;
   axios.get(apiURL).then(showTemperature);
 }
+
+// Unit Conversion
+
+function convertToCelcius(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#temperature");
+  temperature.innerHTML = "25";
+}
+
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#temperature");
+  temperature.innerHTML = "77";
+}
+
+let city = document.querySelector("#city-input");
+
+// API
+let apiKey = "5d746e8f46d35c046956d77d0f16774f";
+let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+axios.get(apiURL).then(showTemperature);
 
 // define time information
 let now = new Date();
@@ -82,6 +107,7 @@ let lastupdate = document.querySelector(".last-update");
 lastupdate.innerHTML = currentDate;
 console.log(lastupdate);
 
+// buttons
 let cityForm = document.querySelector("#city-form");
 cityForm.addEventListener("submit", showCity);
 
@@ -90,12 +116,6 @@ celsiusLink.addEventListener("click", convertToCelcius);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
-
-let city = document.querySelector("#city-input");
-
-let apiKey = "5d746e8f46d35c046956d77d0f16774f";
-let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-axios.get(apiURL).then(showTemperature);
 
 let positionButton = document.querySelector("#position-button");
 positionButton.addEventListener("click", fetchPosition);
