@@ -59,7 +59,7 @@ function showTemperature(response) {
   lastUpdateElement.innerHTML = lastUpdate;
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${iconCode}@2x.png`
+    `https://openweathermap.org/img/wn/${iconCode}@2x.png`
   );
 }
 
