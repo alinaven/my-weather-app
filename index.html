@@ -35,7 +35,7 @@
 
           <div class="row mt-2">
             <div class="col-sm-12 current-city">
-              <span id="city">New York</span>  <span id="country"></span>
+              <span id="city">New York</span>,  <span id="country"></span>
               <p>Last updated: <span id="last-update"></span></p>
             </div>
 <!-- search -->
@@ -49,13 +49,13 @@
                     type="search"
                     class="form-control"
                     id="city-input"
-                    placeholder="🔍 Search for your city"
+                    placeholder="Enter city"
                     autofocus=on
                     autocomplete="off"
                   />
                   <div class="input-group-append">
-                    <input class="btn btn-outline-secondary" type="submit"/>
-                     <button class="btn btn-outline-secondary" id="position-button">📍 Position</button>
+                     <button class="btn btn-outline-secondary" type="submit">🔎 Search</button>
+                     <button class="btn btn-outline-secondary" id="position-button">📍 Current</button>
                   </div>
                   
                 </div>
@@ -91,9 +91,9 @@
           <div class="row m-2 mt-4">
             <div class="col-sm-12 info-description">
               <ul>
-                  <li>Feels like <span id="felt-temperature"></span>°C</li>
-                  <li>Humidity: <span id="humidity"></span>%</li>
-                  <li>Wind: <span id="wind"></span>kph</li>
+                  <li>Temperature feels like <span id="felt-temperature"></span>°C</li>
+                  <li>Humidity:    <span id="humidity"></span>%</li>
+                  <li>Windspeed:    <span id="wind"></span> km/h</li>
               </ul>
             </div>
           </div>
