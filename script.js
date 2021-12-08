@@ -31,38 +31,36 @@ function showTemperature(response) {
   sunrise = formatSuntime(response.data.sys.sunrise * 1000);
   sunset = formatSuntime(response.data.sys.sunset * 1000);
   lastUpdate = formatDate(response.data.dt * 1000);
-  city = `${response.data.name}`;
+  city = response.data.name;
+  iconCode = response.data.weather[0].icon;
 
   // insert variables into html
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = temperatureCelsius;
-
   let descriptionElement = document.querySelector("#description");
-  descriptionElement.innerHTML = weatherDescription;
-
   let cityElement = document.querySelector("#city");
-  cityElement.innerHTML = city;
-
   let feltTemperatureElement = document.querySelector("#felt-temperature");
-  feltTemperatureElement.innerHTML = feltTemperature;
-
   let humidityElement = document.querySelector("#humidity");
-  humidityElement.innerHTML = humidity;
-
   let countryCodeElement = document.querySelector("#country");
-  countryCodeElement.innerHTML = country;
-
   let windSpeedElement = document.querySelector("#wind");
-  windSpeedElement.innerHTML = wind;
-
   let sunriseElement = document.querySelector("#sunrise");
-  sunriseElement.innerHTML = sunrise;
-
   let sunsetElement = document.querySelector("#sunset");
-  sunsetElement.innerHTML = sunset;
-
   let lastUpdateElement = document.querySelector("#last-update");
+  let iconElement = document.querySelector("#main-icon");
+
+  temperatureElement.innerHTML = temperatureCelsius;
+  descriptionElement.innerHTML = weatherDescription;
+  cityElement.innerHTML = city;
+  feltTemperatureElement.innerHTML = feltTemperature;
+  humidityElement.innerHTML = humidity;
+  countryCodeElement.innerHTML = country;
+  windSpeedElement.innerHTML = wind;
+  sunriseElement.innerHTML = sunrise;
+  sunsetElement.innerHTML = sunset;
   lastUpdateElement.innerHTML = lastUpdate;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${iconCode}@2x.png`
+  );
 }
 
 // weather for city via search engine
