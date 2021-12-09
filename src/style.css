@@ -94,7 +94,7 @@ ul {
   text-transform: capitalize;
 }
 
-#last-update {
+.last-update {
   font-size: 14px;
 }
 .weather-info .active {
