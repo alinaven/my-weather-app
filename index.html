@@ -22,12 +22,12 @@
     ></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
-    <title>Weather App</title>
+    <title>Alina's Weather Forecast</title>
   </head>
   <body>
-    <div class="container p-1">
-      <div class="background-box shadow p-3 mb-5 rounded">
-        <div class="row m-1 mt-5">
+    <div class="container">
+      <div class="background-box shadow p-3 m-5 rounded">
+        <div class="row p-3">
           <!-- location info -->
           <div class="col-sm-6 location-info">
             <div class="row mt-2">
@@ -63,7 +63,7 @@
                   </form>
                 </div>
               </div>
-              <div class="row m-1 mt-4">
+              <div class="row m-1 mt-2">
                 <div class="col-12 suntime">
                   Sunrise: <span id="sunrise"></span>h | Sunset:
                   <span id="sunset"></span>h
@@ -73,77 +73,48 @@
           </div>
 
           <!-- current weather -->
-          <div class="col-sm-6 mt-2 weather-info">
-            <div class="row m-2">
+          <div class="col-sm-6 weather-info">
+            <div class="row m-4">
               <div class="col-sm-8 current-weather">
                 <h2>Current weather</h2>
                 <p id="temperature"></p>
-                <a href="#" id="celsius-link" class="active">°C</a> /
-                <a href="#" id="fahrenheit-link">°F</a>
+                <span class="unit">°C</span>
                 <br />
                 <span id="description"></span>
               </div>
-              <div class="col-sm-4 px-0">
+              <div class="col-sm-4">
                 <img src="" id="main-icon" class="img-fluid" />
               </div>
             </div>
 
-            <div class="row m-2 mt-4">
+            <div class="row m-4">
               <div class="col-sm-12 info-description">
                 <ul>
                   <li>
-                    Temperature feels like <span id="felt-temperature"></span>°C
+                    Temperature feels like
+                    <span class="info-value"
+                      ><span id="felt-temperature"></span>°C</span
+                    >
                   </li>
-                  <li>Humidity: <span id="humidity"></span>%</li>
-                  <li>Windspeed: <span id="wind"></span> km/h</li>
+                  <li>
+                    Humidity:
+                    <span class="info-value">
+                      <span id="humidity"></span>%</span
+                    >
+                  </li>
+                  <li>
+                    Windspeed:
+                    <span class="info-value"><span id="wind"></span> km/h</span>
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
 
+        <div><hr /></div>
         <div class="weather-forecast" id="forecast"></div>
-
-        <!-- weather forecast upcoming 5 days 
-        <div class="row m-5 daily-weather">
-          <div class="col-sm-2 day">
-            <span class="day-name">Tuesday</span>
-            <i class="fas fa-sun daily-icon"></i>
-            28 °C / 14 °C
-          </div>
-
-          <div class="col-sm-2 day">
-            <span class="day-name">Wednesday</span>
-            <i class="fas fa-cloud-rain daily-icon"></i>
-            22 °C / 10 °C
-          </div>
-
-          <div class="col-sm-2 day">
-            <span class="day-name">Thursday</span>
-            <i class="fas fa-cloud-rain daily-icon"></i>
-            24 °C / 12 °C
-          </div>
-
-          <div class="col-sm-2 day">
-            <span class="day-name">Friday</span>
-            <i class="fas fa-sun daily-icon"></i>
-            26 °C / 14 °C
-          </div>
-          <div class="col-sm-2 day">
-            <span class="day-name">Saturday</span>
-            <i class="fas fa-cloud daily-icon"></i>
-            26 °C / 12 °C
-          </div>
-
-          <div class="col-sm-2 day">
-            <span class="day-name">Sunday</span>
-            <i class="fas fa-cloud daily-icon"></i>
-            26 °C / 12 °C
-          </div>
-        </div>
-        </div>
-        -->
-
+        <div><hr /></div>
         <footer id="Github-link">
           <a href="https://github.com/alinaven/my-weather-app"
             >👩🏼‍💻 Open-source code </a
