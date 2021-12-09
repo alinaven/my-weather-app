@@ -8,9 +8,6 @@ function retrievePosition(position) {
   console.log(position);
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  //let city = document.querySelector("#city");
-  //city.innerHTML = `${position.name}`;
-  //city.innerHTML = `Your latitude is ${position.coords.latitude} and your longitude is ${position.coords.longitude}`;
   let apiKey = "5d746e8f46d35c046956d77d0f16774f";
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
   axios.get(apiURL).then(showTemperature);
@@ -73,20 +70,6 @@ function showCity(event) {
   axios.get(apiURL).then(showTemperature);
 }
 
-// Unit Conversion
-
-//function convertToCelcius(event) {
-//event.preventDefault();
-//let temperature = document.querySelector("#temperature");
-//temperature.innerHTML = "25";
-//}
-
-//function convertToFahrenheit(event) {
-// event.preventDefault();
-// let temperature = document.querySelector("#temperature");
-// temperature.innerHTML = "77";
-//}
-
 // formatted date from API
 function formatDate(timestamp) {
   let date = new Date(timestamp);
@@ -124,24 +107,13 @@ function formatSuntime(timestamp) {
   return `${hours}:${minutes}`;
 }
 
-//let city = document.querySelector("#city-input");
-
 // API
 let apiKey = "5d746e8f46d35c046956d77d0f16774f";
 let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(apiURL).then(showTemperature);
 
-// buttons
-//let cityForm = document.querySelector("#city-form");
-//cityForm.addEventListener("submit", showCity);
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-//let celsiusLink = document.querySelector("#celsius-link");
-//celsiusLink.addEventListener("click", convertToCelcius);
-
-//let fahrenheitLink = document.querySelector("#fahrenheit-link");
-//fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
 let positionButton = document.querySelector("#position-button");
 positionButton.addEventListener("click", fetchPosition);
@@ -159,14 +131,6 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-search("New York");
-
-// Unit conversion
-let celsiusTemperature = null;
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
@@ -176,13 +140,20 @@ function displayFahrenheitTemperature(event) {
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
-
 function displayCelsiusTemperature(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(temperatureCelsius);
 }
+
+search("New York");
+
+let celsiusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
