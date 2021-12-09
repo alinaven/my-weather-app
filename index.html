@@ -26,143 +26,132 @@
   </head>
   <body>
     <div class="container p-1">
-        <div class="background-box shadow p-3 mb-5  rounded">
-
-      <div class="row m-1 mt-5">
-
-<!-- location info -->
-        <div class="col-sm-6 location-info">
-
-          <div class="row mt-2">
-            <div class="col-sm-12 current-city">
-              <span id="city">New York</span>,  <span id="country"></span>
-              <p>Last updated: <span id="last-update"></span></p>
-            </div>
-<!-- search -->
-            <div class="row m-2">
-              <div class="search-bar">
-           
-                <form id="search-form">
-                <div class="input-group">
-          
-                  <input
-                    type="search"
-                    class="form-control"
-                    id="city-input"
-                    placeholder="Enter city"
-                    autofocus=on
-                    autocomplete="off"
-                  />
-                  <div class="input-group-append">
-                     <button class="btn btn-outline-secondary" type="submit">🔎 Search</button>
-                     <button class="btn btn-outline-secondary" id="position-button">📍 Current</button>
-                  </div>
-                  
-                </div>
-                </form>
+      <div class="background-box shadow p-3 mb-5 rounded">
+        <div class="row m-1 mt-5">
+          <!-- location info -->
+          <div class="col-sm-6 location-info">
+            <div class="row mt-2">
+              <div class="col-sm-12 current-city">
+                <span id="city">New York</span>, <span id="country"></span>
+                <p>Last updated: <span id="last-update"></span></p>
               </div>
-            </div>
-            <div class="row m-1 mt-4">
+              <!-- search -->
+              <div class="row m-2">
+                <div class="search-bar">
+                  <form id="search-form">
+                    <div class="input-group">
+                      <input
+                        type="search"
+                        class="form-control"
+                        id="city-input"
+                        placeholder="Enter city"
+                        autofocus="on"
+                        autocomplete="off"
+                      />
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit">
+                          🔎 Search
+                        </button>
+                        <button
+                          class="btn btn-outline-secondary"
+                          id="position-button"
+                        >
+                          📍 Current
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="row m-1 mt-4">
                 <div class="col-12 suntime">
-                Sunrise: <span id=sunrise></span>h | Sunset: <span id=sunset></span>h
+                  Sunrise: <span id="sunrise"></span>h | Sunset:
+                  <span id="sunset"></span>h
+                </div>
               </div>
+            </div>
+          </div>
+
+          <!-- current weather -->
+          <div class="col-sm-6 mt-2 weather-info">
+            <div class="row m-2">
+              <div class="col-sm-8 current-weather">
+                <h2>Current weather</h2>
+                <p id="temperature"></p>
+                <a href="#" id="celsius-link" class="active">°C</a> /
+                <a href="#" id="fahrenheit-link">°F</a>
+                <br />
+                <span id="description"></span>
               </div>
+              <div class="col-sm-4 px-0">
+                <img src="" id="main-icon" class="img-fluid" />
+              </div>
+            </div>
+
+            <div class="row m-2 mt-4">
+              <div class="col-sm-12 info-description">
+                <ul>
+                  <li>
+                    Temperature feels like <span id="felt-temperature"></span>°C
+                  </li>
+                  <li>Humidity: <span id="humidity"></span>%</li>
+                  <li>Windspeed: <span id="wind"></span> km/h</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
 
-<!-- current weather -->
-        <div class="col-sm-6 mt-2 weather-info">
-          <div class="row m-2">
-            <div class="col-sm-8 current-weather">
-              <h2>Current weather</h2>
-              <p id="temperature"></p>
-              <a href="#" id="celsius-link" class="active">°C</a> / <a href="#" id="fahrenheit-link">°F</a>
-              <br />
-              <span id="description"></span>
-            </div>
-            <div class="col-sm-4 px-0">
-            <img src="" 
-            id="main-icon" 
-            class="img-fluid"
-        >           
-            </div>
-          </div>
+        <div class="weather-forecast" id="forecast"></div>
 
-          <div class="row m-2 mt-4">
-            <div class="col-sm-12 info-description">
-              <ul>
-                  <li>Temperature feels like <span id="felt-temperature"></span>°C</li>
-                  <li>Humidity:    <span id="humidity"></span>%</li>
-                  <li>Windspeed:    <span id="wind"></span> km/h</li>
-              </ul>
-            </div>
-          </div>
-    </div>
-    </div>
-    
-         <div class="weather-forecast">
-            <div class="row">
-                <div class="col-2">
-                    <div class="weather-forecast-date">Thu</div>
-                    <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="" width="42">
-                <div class="weather-forecast temperatures">
-                    <span class="weather-forecast-temp-max">18°</span>
-                    <span class="weather-forecast-temp-min">12°</span>
-                </div>
-                </div>
-            </div>
-        </div>
-
-<!-- weather forecast upcoming 5 days -->
+        <!-- weather forecast upcoming 5 days 
         <div class="row m-5 daily-weather">
+          <div class="col-sm-2 day">
+            <span class="day-name">Tuesday</span>
+            <i class="fas fa-sun daily-icon"></i>
+            28 °C / 14 °C
+          </div>
 
           <div class="col-sm-2 day">
-             <span class="day-name">Tuesday</span>
-              <i class="fas fa-sun daily-icon"></i>
-                  28 °C / 14 °C
-              </div>
-            
-          <div class="col-sm-2 day">
-        
-                  <span class="day-name">Wednesday</span>
-                  <i class="fas fa-cloud-rain daily-icon"></i>
-                  22 °C / 10 °C
-            </div>
-          
-          <div class="col-sm-2 day">
-              <span class="day-name">Thursday</span>
+            <span class="day-name">Wednesday</span>
             <i class="fas fa-cloud-rain daily-icon"></i>
-                  24 °C / 12 °C
-               
+            22 °C / 10 °C
           </div>
-     
+
+          <div class="col-sm-2 day">
+            <span class="day-name">Thursday</span>
+            <i class="fas fa-cloud-rain daily-icon"></i>
+            24 °C / 12 °C
+          </div>
+
           <div class="col-sm-2 day">
             <span class="day-name">Friday</span>
-              <i class="fas fa-sun daily-icon"></i>   
-                  26 °C / 14 °C
-                
+            <i class="fas fa-sun daily-icon"></i>
+            26 °C / 14 °C
           </div>
           <div class="col-sm-2 day">
-            
-                  <span class="day-name">Saturday</span>
-                 <i class="fas fa-cloud daily-icon"></i>
-                  26 °C / 12 °C  
+            <span class="day-name">Saturday</span>
+            <i class="fas fa-cloud daily-icon"></i>
+            26 °C / 12 °C
           </div>
 
           <div class="col-sm-2 day">
-             <span class="day-name">Sunday</span>
-            <i class="fas fa-cloud daily-icon"></i> 
-                  26 °C / 12 °C
+            <span class="day-name">Sunday</span>
+            <i class="fas fa-cloud daily-icon"></i>
+            26 °C / 12 °C
           </div>
+        </div>
+        </div>
+        -->
 
-          </div>
-          </div>
-        <footer id="Github-link"><a href="https://github.com/alinaven/my-weather-app">👩🏼‍💻 Open-source code </a>by Alina Vennes</footer>
+        <footer id="Github-link">
+          <a href="https://github.com/alinaven/my-weather-app"
+            >👩🏼‍💻 Open-source code </a
+          >by Alina Vennes
+        </footer>
       </div>
-      </div>
     </div>
-    </div>
-    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
