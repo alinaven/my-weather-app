@@ -33,7 +33,6 @@ function showTemperature(response) {
   city = response.data.name;
   iconCode = response.data.weather[0].icon;
 
-  console.log(sunrise);
   // insert variables into html
   let temperatureElement = document.querySelector("#temperature");
   let descriptionElement = document.querySelector("#description");
@@ -76,17 +75,17 @@ function showCity(event) {
 
 // Unit Conversion
 
-function convertToCelcius(event) {
-  event.preventDefault();
-  let temperature = document.querySelector("#temperature");
-  temperature.innerHTML = "25";
-}
+//function convertToCelcius(event) {
+//event.preventDefault();
+//let temperature = document.querySelector("#temperature");
+//temperature.innerHTML = "25";
+//}
 
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let temperature = document.querySelector("#temperature");
-  temperature.innerHTML = "77";
-}
+//function convertToFahrenheit(event) {
+// event.preventDefault();
+// let temperature = document.querySelector("#temperature");
+// temperature.innerHTML = "77";
+//}
 
 // formatted date from API
 function formatDate(timestamp) {
@@ -138,12 +137,11 @@ axios.get(apiURL).then(showTemperature);
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+//let celsiusLink = document.querySelector("#celsius-link");
+//celsiusLink.addEventListener("click", convertToCelcius);
 
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", convertToCelcius);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
+//let fahrenheitLink = document.querySelector("#fahrenheit-link");
+//fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
 let positionButton = document.querySelector("#position-button");
 positionButton.addEventListener("click", fetchPosition);
@@ -162,3 +160,29 @@ function handleSubmit(event) {
 }
 
 search("New York");
+
+// Unit conversion
+let celsiusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = (temperatureCelsius * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  temperatureElement.innerHTML = Math.round(temperatureCelsius);
+}

@@ -91,3 +91,11 @@ ul {
 #description {
   text-transform: capitalize;
 }
+
+.weather-info .active {
+  color: black;
+  cursor: default;
+}
+.weather-info .active:hover {
+  text-decoration: none;
+}
