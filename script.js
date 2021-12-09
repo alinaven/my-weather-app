@@ -1,6 +1,4 @@
 // Retrieve location
-//window.onload = fetchPosition();
-console.log(navigator.language);
 
 function fetchPosition(position) {
   navigator.geolocation.getCurrentPosition(retrievePosition);
@@ -29,12 +27,13 @@ function showTemperature(response) {
   feltTemperature = Math.round(response.data.main.feels_like);
   country = response.data.sys.country;
   wind = Math.round(response.data.wind.speed);
-  sunrise = formatSuntime(response.data.sys.sunrise) * 1000;
-  sunset = formatSuntime(response.data.sys.sunset) * 1000;
+  sunrise = formatSuntime(response.data.sys.sunrise * 1000);
+  sunset = formatSuntime(response.data.sys.sunset * 1000);
   lastUpdate = formatDate(response.data.dt * 1000);
   city = response.data.name;
   iconCode = response.data.weather[0].icon;
 
+  console.log(sunrise);
   // insert variables into html
   let temperatureElement = document.querySelector("#temperature");
   let descriptionElement = document.querySelector("#description");
